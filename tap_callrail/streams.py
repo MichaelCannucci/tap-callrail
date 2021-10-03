@@ -1,44 +1,14 @@
 """Stream type classes for tap-callrail."""
 
-from pathlib import Path
-from typing import Any, Dict, Optional, Union, List, Iterable
-
 from singer_sdk import typing as th  # JSON Schema typing helpers
 
-from tap_callrail.client import callrailStream
+from tap_callrail.client import SCHEMAS_DIR, callrailStream
 
-
-class UsersStream(callrailStream):
-    """Define custom stream."""
-    name = "users"
+class CallsStream(callrailStream):
+    """Calls stream."""
+    name = "calls"
     path = "/calls.json"
     primary_keys = ["id"]
-    replication_key = None
-    # Optionally, you may also use `schema_filepath` in place of `schema`:
-    # schema_filepath = SCHEMAS_DIR / "users.json"
-    schema = th.PropertiesList(
-        th.Property("name", th.StringType),
-        th.Property(
-            "id",
-            th.StringType,
-            description="The user's system ID"
-        ),
-        th.Property(
-            "age",
-            th.IntegerType,
-            description="The user's age in years"
-        ),
-        th.Property(
-            "email",
-            th.StringType,
-            description="The user's email address"
-        ),
-        th.Property("street", th.StringType),
-        th.Property("city", th.StringType),
-        th.Property(
-            "state",
-            th.StringType,
-            description="State name in ISO 3166-2 format"
-        ),
-        th.Property("zip", th.StringType),
-    ).to_dict()
+    sorting_field = "start_time"
+    replication_key = "start_time"
+    schema_filepath = SCHEMAS_DIR / "calls.json"

@@ -1,0 +1,332 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Calls",
+    "description": "Call information",
+    "type": "object",
+    "required": [
+        "answered",
+        "business_phone_number",
+        "customer_city",
+        "customer_country",
+        "customer_name",
+        "customer_phone_number",
+        "customer_state",
+        "direction",
+        "duration",
+        "id",
+        "recording",
+        "recording_duration",
+        "recording_player",
+        "start_time",
+        "tracking_phone_number",
+        "voicemail"
+    ],
+    "properties": {
+        "answered": {
+            "type": "boolean",
+            "description": "Whether the call was answered (true) or not answered (false)."
+        },
+        "business_phone_number": {
+            "type": "string",
+            "description": "The phone number of the person or business who answered the call from the dialed tracking number."
+        },
+        "customer_city": {
+            "type": "string",
+            "description": "The customer’s city, based on the original assigned location of their phone number."
+        },
+        "customer_country": {
+            "type": "string",
+            "description": "The customer’s country, based on the area code of their phone number."
+        },
+        "customer_name": {
+            "type": "string",
+            "description": "The customer’s name, as reported by Caller ID."
+        },
+        "customer_phone_number": {
+            "type": "string",
+            "description": "The customer’s phone number (in E.164 format)."
+        },
+        "customer_state": {
+            "type": "string",
+            "description": "The 2-character abbreviation for the customer’s state, based on the original assigned location of their phone number."
+        },
+        "direction": {
+            "type": "string",
+            "description": "Whether the call was inbound (from a customer to you) or outbound (from you to a customer)."
+        },
+        "duration": {
+            "type": "integer",
+            "description": "The duration of the call in seconds."
+        },
+        "id": {
+            "type": "string",
+            "description": "Unique identifier for the call."
+        },
+        "recording": {
+            "type": "string",
+            "description": "A URL pointing to the calls/recording api endpoint."
+        },
+        "recording_duration": {
+            "type": "string",
+            "description": "The length in seconds of the recording, if available."
+        },
+        "recording_player": {
+            "type": "string",
+            "description": "The URL for a stand-alone recording player for this call, if available."
+        },
+        "start_time": {
+            "type": "string",
+            "format": "date-time",
+            "description": "The date and time the call started in the current timezone (ISO 8601 format) with an offset."
+        },
+        "tracking_phone_number": {
+            "type": "string",
+            "description": "The business’ tracking phone number for this call (in E.164 format)."
+        },
+        "voicemail": {
+            "type": "boolean",
+            "description": "Whether the call ended with a voicemail (true) or not (false)."
+        },
+        "call_type": {
+            "type": "string",
+            "description": "The type of call. One of first_call, missed, voicemails, inbound, or outbound"
+        },
+        "company_id": {
+            "type": "string",
+            "description": "The string id of the company the call belongs to."
+        },
+        "company_name": {
+            "type": "string",
+            "description": "The name of the company the source belongs to ."
+        },
+        "company_time_zone": {
+            "type": "string",
+            "description": "The configure time zone of the company in CallRail."
+        },
+        "created_at": {
+            "type": "string",
+            "description": "The date and time the call was created in the current timezone (ISO 8601 format) with an offset."
+        },
+        "device_type": {
+            "type": "string",
+            "description": "Either mobile or desktop, available for calls placed to Website (Session) trackers."
+        },
+        "first_call": {
+            "type": "boolean",
+            "description": "Whether or not the call is the caller’s first call to this company."
+        },
+        "formatted_call_type": {
+            "type": "string",
+            "description": "The type of call, formatted for display."
+        },
+        "formatted_customer_location": {
+            "type": "string",
+            "description": "The customer’s city and state formatted for display."
+        },
+        "formatted_business_phone_number": {
+            "type": "string",
+            "description": "The phone number of the person or business who answered the call from the dialed tracking number, formatted for display."
+        },
+        "formatted_customer_name": {
+            "type": "string",
+            "description": "The customer’s name with certain values stylized for display."
+        },
+        "prior_calls": {
+            "type": "integer",
+            "description": "The number of times this company received a call from this customer prior to this call. If this is the first call from the customer, prior_calls will be 0."
+        },
+        "formatted_customer_name_or_phone_number": {
+            "type": "string",
+            "description": "The name or phone number of the customer as reported by Caller ID, formatted for display."
+        },
+        "formatted_customer_phone_number": {
+            "type": "string",
+            "description": "The customer’s phone number formatted for display."
+        },
+        "formatted_duration": {
+            "type": "string",
+            "description": "The duration of the call formatted for display."
+        },
+        "formatted_tracking_phone_number": {
+            "type": "string",
+            "description": "The business’ tracking phone number for this call formatted for display."
+        },
+        "formatted_tracking_source": {
+            "type": "string",
+            "description": "The name of the call source formatted for display."
+        },
+        "formatted_value": {
+            "type": "string",
+            "description": "The value of the call assigned via the CallRail dashboard, formatted as currency or “–” if not set."
+        },
+        "good_lead_call_id": {
+            "type": "integer",
+            "description": "If provided, the id of the call that was originally scored as a good lead."
+        },
+        "good_lead_call_time": {
+            "type": "string",
+            "description": "If provided, the time of the call that was originally scored as a good lead."
+        },
+        "lead_status": {
+            "type": "string",
+            "description": "The current lead status of this caller (as of this call). One of good_lead, not_a_lead, previously_marked_good_lead, or null."
+        },
+        "note": {
+            "type": "string",
+            "description": "Any text notes to associate with this call."
+        },
+        "source": {
+            "type": "string",
+            "description": "The marketing source that led to the phone call."
+        },
+        "source_name": {
+            "type": "string",
+            "description": "The name of the tracking number within CallRail."
+        },
+        "tags": {
+            "type": "array",
+            "description": "Any tags which have been applied to this call.",
+            "items": {
+                "type": "integer"
+            }
+        },
+        "total_calls": {
+            "type": "integer",
+            "description": "The total number of calls received from a customer phone number."
+        },
+        "value": {
+            "type": "string",
+            "description": "A number representing the value of this call."
+        },
+        "waveforms": {
+            "type": "array",
+            "description": "Only present if the call was recorded. Contains the URLs of two images representing the volume of the call over time.",
+            "items": {
+                "type": "string"
+            }
+        },
+        "tracker_id": {
+            "type": "string",
+            "description": "If provided, only return calls to this specific tracking number."
+        },
+        "speaker_percent": {
+            "type": "object",
+            "description": "A JSON object containing the values of the percentage of time spent talking by the Agent and Customer on a call.",
+            "properties": {
+                "agent": {
+                    "type": "integer",
+                    "customer": "integer"
+                }
+            }
+        },
+        "keywords": {
+            "type": "string",
+            "description": "The keywords the visitor searched for, if available for calls placed to Website (Session) trackers. Keywords only provided from paid ad sources."
+        },
+        "medium": {
+            "type": "string",
+            "description": "“PPC” or “Organic”, available for calls placed to Website (Session) trackers."
+        },
+        "campaign": {
+            "type": "string",
+            "description": "The name of the campaign the call belongs to."
+        },
+        "referring_url": {
+            "type": "string",
+            "description": "The URL that referred the caller to your website, available for calls placed to Website (Session) trackers."
+        },
+        "landing_page_url": {
+            "type": "string",
+            "description": "The URL the caller first landed on, available for calls placed to Website (Session) trackers."
+        },
+        "last_requested_url": {
+            "type": "string",
+            "description": "The URL of the active page at the time the call was placed, available for calls placed to Website (Session) trackers."
+        },
+        "referrer_domain": {
+            "type": "string",
+            "description": "The domain that referred the caller to your website, available for calls placed to Website (Session) trackers."
+        },
+        "utm_source": {
+            "type": "string",
+            "description": "utm_source as captured from the landing page parameter for Website (Session) Trackers, or as specified in the configuration for Source Trackers."
+        },
+        "utm_medium": {
+            "type": "string",
+            "description": "utm_medium as captured from the landing page parameter for Website (Session) Trackers, or as specified in the configuration for Source Trackers."
+        },
+        "utm_term": {
+            "type": "string",
+            "description": "utm_term as captured from the landing page parameter, available for calls placed to Website (Session) trackers."
+        },
+        "utm_content": {
+            "type": "string",
+            "description": "utm_content as captured from the landing page parameter, available for calls placed to Website (Session) trackers."
+        },
+        "utm_campaign": {
+            "type": "string",
+            "description": "utm_campaign as captured from the landing page parameter, or as specified in the configuration for Source Trackers."
+        },
+        "utma": {
+            "type": "string",
+            "description": "Google Analytics _utma value, available for calls placed to Website (Session) trackers."
+        },
+        "utmb": {
+            "type": "string",
+            "description": "Google Analytics _utmb value, available for calls placed to Website (Session) trackers."
+        },
+        "utmc": {
+            "type": "string",
+            "description": "Google Analytics _utmc value, available for calls placed to Website (Session) trackers."
+        },
+        "utmv": {
+            "type": "string",
+            "description": "Google Analytics _utmv value, available for calls placed to Website (Session) trackers."
+        },
+        "utmz": {
+            "type": "string",
+            "description": "Google Analytics _utmz value, available for calls placed to Website (Session) trackers."
+        },
+        "ga": {
+            "type": "string",
+            "description": "Google Universal Analytics _ga value, available for calls placed to Website (Session) trackers."
+        },
+        "gclid": {
+            "type": "string",
+            "description": "gclid as captured from the landing page parameter, available for calls placed to Website (Session) trackers."
+        },
+        "fbclid": {
+            "type": "string",
+            "description": "fbclid as captured from the landing page parameter, available for calls placed to Website (Session) trackers."
+        },
+        "msclkid": {
+            "type": "string",
+            "description": "msclkid as captured from the landing page parameter, available for calls placed to Website (Session) Trackers."
+        },
+        "keywords_spotted": {
+            "type": "array",
+            "description": "Array of keywords spotted, each containing keyword with locations in seconds offset from beginning of recording.",
+            "items": {
+                "type": "string"
+            }
+        },
+        "call_highlights": {
+            "type": "array",
+            "description": "A list of relevant keywords automatically found in the call transcription.",
+            "items": {
+                "type": "string"
+            }
+        },
+        "agent_email": {
+            "type": "string",
+            "description": "Email address for the user who answered the call, when applicable."
+        },
+        "keypad_entries": {
+            "type": "array",
+            "description": "A list of each number entered by the caller as part of a call flow. Each item includes the name given to the keypad entry step in the call flow and the numbers entered by the caller in the keypad entry step of the call flow. { \"name\": \"Account Number\", \"value\": \"1234\" }",
+            "items": {
+                "type": "string"
+            }
+        }
+    }
+}

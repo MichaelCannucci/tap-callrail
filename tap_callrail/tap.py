@@ -5,37 +5,29 @@ from typing import List
 from singer_sdk import Tap, Stream
 from singer_sdk import typing as th  # JSON schema typing helpers
 
-# TODO: Import your custom stream types here:
 from tap_callrail.streams import (
-    callrailStream,
-    UsersStream,
-    GroupsStream,
+    CallsStream,
 )
-# TODO: Compile a list of custom stream types here
-#       OR rewrite discover_streams() below with your custom logic.
-STREAM_TYPES = [
-    UsersStream,
-    GroupsStream,
-]
 
+STREAM_TYPES = [
+    CallsStream,
+]
 
 class Tapcallrail(Tap):
     """callrail tap class."""
     name = "tap-callrail"
-
-    # TODO: Update this section with the actual config values you expect:
     config_jsonschema = th.PropertiesList(
         th.Property(
-            "auth_token",
+            "api_key",
             th.StringType,
             required=True,
-            description="The token to authenticate against the API service"
+            description="The key to authenticate against the API service"
         ),
         th.Property(
-            "project_ids",
-            th.ArrayType(th.StringType),
+            "account_id",
+            th.StringType,
             required=True,
-            description="Project IDs to replicate"
+            description="Callrail account id"
         ),
         th.Property(
             "start_date",
@@ -43,11 +35,10 @@ class Tapcallrail(Tap):
             description="The earliest record date to sync"
         ),
         th.Property(
-            "api_url",
-            th.StringType,
-            default="https://api.mysample.com",
-            description="The url for the API service"
-        ),
+            "per_page",
+            th.IntegerType,
+            description="Number of records to fetch per page"
+        )
     ).to_dict()
 
     def discover_streams(self) -> List[Stream]:
