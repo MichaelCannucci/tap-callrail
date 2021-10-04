@@ -4,9 +4,25 @@
 
 Built with the [Meltano Tap SDK](https://sdk.meltano.com) for Singer Taps.
 
-## Installation
+## Roadmap
 
-- [ ] `Developer TODO:` Update the below as needed to correctly describe the install procedure. For instance, if you do not have a PyPi repo, or if you want users to directly install from your git repo, you can modify this step as appropriate.
+- [x] Calls
+- [ ] Accounts
+- [ ] Tags
+- [ ] Companies
+- [ ] Form Submissions
+- [ ] Integrations
+- [ ] Integration Triggers
+- [ ] Notifications
+- [ ] Outbound Caller Ids
+- [ ] Page Views
+- [ ] Summary Emails
+- [ ] Text Messages
+- [ ] Trackers
+- [ ] Users
+- [ ] Flesh out Testing
+
+## Installation
 
 ```bash
 # TODO: Create PyPi Repo
@@ -45,10 +61,10 @@ tap-callrail --config CONFIG --discover > ./catalog.json
 
 ## Developer Resources
 
-API Resources for the CallRail API are available on their documentation
-```
-https://apidocs.callrail.com/#sorting
-```
+API Resources for the CallRail API are available on their site
+
+https://apidocs.callrail.com/
+
 
 ### Initialize your Development Environment
 
