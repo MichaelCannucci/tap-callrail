@@ -9,6 +9,7 @@ Built with the [Meltano Tap SDK](https://sdk.meltano.com) for Singer Taps.
 - [ ] `Developer TODO:` Update the below as needed to correctly describe the install procedure. For instance, if you do not have a PyPi repo, or if you want users to directly install from your git repo, you can modify this step as appropriate.
 
 ```bash
+# TODO: Create PyPi Repo
 pipx install tap-callrail
 ```
 
@@ -16,18 +17,19 @@ pipx install tap-callrail
 
 ### Accepted Config Options
 
-- [ ] `Developer TODO:` Provide a list of config options accepted by the tap.
-
 A full list of supported settings and capabilities for this
 tap is available by running:
 
+```
+"api_key": The key to authenticate against the API service (Required)
+"account_id": Callrail account id (Required)
+"start_date": The earliest record date to sync
+"per_page": Number of records to fetch per page (max: 250)
+```
+or
 ```bash
 tap-callrail --about
 ```
-
-### Source Authentication and Authorization
-
-- [ ] `Developer TODO:` If your tap requires special access on the source system, or any special authentication requirements, provide those here.
 
 ## Usage
 
@@ -43,7 +45,10 @@ tap-callrail --config CONFIG --discover > ./catalog.json
 
 ## Developer Resources
 
-- [ ] `Developer TODO:` As a first step, scan the entire project for the text "`TODO:`" and complete any recommended steps, deleting the "TODO" references once completed.
+API Resources for the CallRail API are available on their documentation
+```
+https://apidocs.callrail.com/#sorting
+```
 
 ### Initialize your Development Environment
 
@@ -53,6 +58,16 @@ poetry install
 ```
 
 ### Create and Run Tests
+
+Create a config.json in .secrets and fill out the tap settings
+
+```
+{
+    "api_key": "API_KEY_HERE",
+    "account_id": "ACCOUNT_ID_HERE",
+    "start_date": "2021-10-01"
+}
+```
 
 Create tests within the `tap_callrail/tests` subfolder and
   then run:
