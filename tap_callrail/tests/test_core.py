@@ -1,16 +1,14 @@
 """Tests standard tap features using the built-in SDK tests library."""
 
-import datetime
-
+import json
 from singer_sdk.testing import get_standard_tap_tests
-
 from tap_callrail.tap import Tapcallrail
 
-SAMPLE_CONFIG = {
-    "start_date": datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%d")
-    # TODO: Initialize minimal tap config
-}
+SAMPLE_CONFIG = {}
 
+with open(".secrets/config.json") as f:
+    contents = f.read()
+    SAMPLE_CONFIG = json.loads(contents)
 
 # Run standard built-in tap tests from the SDK:
 def test_standard_tap_tests():
